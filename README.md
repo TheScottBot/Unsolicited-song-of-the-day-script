@@ -4,6 +4,14 @@ A one-tap Termux:Widget that takes a Spotify link from your clipboard, strips th
 `?si=...` tracking parameter, and puts it back wrapped as
 `Unsolicited song of the day: {link}`.
 
+## Demo
+
+The [`bsky-draft.sh`](https://github.com/FtrOnOff/Unsolicited-song-of-the-day-script/blob/main/bsky-draft.sh)
+variant in action: copy a Spotify share link, tap the widget once, and the Bluesky
+composer opens prefilled with the cleaned link; just hit Post.
+
+![One tap turns a copied Spotify share link into a cleaned, prefilled "Unsolicited song of the day" Bluesky post](demo.gif)
+
 ## Requirements
 
 - [Termux](https://github.com/termux/termux-app)
