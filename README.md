@@ -43,6 +43,10 @@ case "$clip" in
 esac
 ```
 
+Optionally use [bsky-draft.sh](https://github.com/FtrOnOff/Unsolicited-song-of-the-day-script/blob/main/bsky-draft.sh)
+for even less work; it strips the link and opens the Bluesky composer with the post
+prefilled, so you just tap to send.
+
 ### 2. Make it executable
 
 ```bash
@@ -54,3 +58,13 @@ chmod +x ~/.shortcuts/clean-spotify.sh
 Long-press your home screen, add the **Termux:Widget**, then tap
 `clean-spotify.sh` in the list. It's one tap from then on.
 
+## How it works
+
+- `${clip%%\?*}` is bash parameter expansion that chops everything from the first
+  `?` onward, so `...2DZaj1Qemb4HNXyXDQmCG7?si=61UW...` becomes
+  `...2DZaj1Qemb4HNXyXDQmCG7`. No regex or `sed` needed.
+- The `case` guard means the clipboard is only touched when its contents start with
+  `https://open.spotify.com/`. Anything else just gets a "Not a Spotify link" toast
+  and the clipboard is left alone.
+
+Drop the `termux-toast` lines if you'd rather it run silently.
